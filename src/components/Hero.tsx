@@ -1,13 +1,11 @@
 import { es } from "@/content/es";
 import { en } from "@/content/en";
 
-type Language = "es" | "en";
-
 interface HeroProps {
-  language?: Language;
+  language: "es" | "en";
 }
 
-export default function Hero({ language = "es" }: HeroProps) {
+export default function Hero({ language }: HeroProps) {
   const content = language === "en" ? en : es;
 
   return (
@@ -27,11 +25,11 @@ export default function Hero({ language = "es" }: HeroProps) {
 
         <div className="mt-10 flex gap-4">
           <button className="rounded-full bg-black px-6 py-3 text-white transition hover:opacity-80">
-            Ver proyectos
+            {language === "en" ? "View projects" : "Ver proyectos"}
           </button>
 
           <button className="rounded-full border border-black px-6 py-3 transition hover:bg-black hover:text-white">
-            Contacto
+            {language === "en" ? "Contact" : "Contacto"}
           </button>
         </div>
       </div>
