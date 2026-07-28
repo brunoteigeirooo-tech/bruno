@@ -1,3 +1,6 @@
+import { es } from "@/content/es";
+import { en } from "@/content/en";
+
 interface NavbarProps {
   language: "es" | "en";
   setLanguage: (language: "es" | "en") => void;
@@ -7,6 +10,8 @@ export default function Navbar({
   language,
   setLanguage,
 }: NavbarProps) {
+  const content = language === "en" ? en : es;
+
   return (
     <nav className="w-full flex items-center justify-between px-8 py-6">
       <div className="text-lg font-semibold tracking-tight">
@@ -15,15 +20,15 @@ export default function Navbar({
 
       <div className="flex items-center gap-8 text-sm text-zinc-600">
         <a href="#perfil" className="hover:text-black transition">
-          Perfil
+          {content.nav.profile}
         </a>
 
         <a href="#experiencia" className="hover:text-black transition">
-          Experiencia
+          {content.nav.experience}
         </a>
 
         <a href="#contacto" className="hover:text-black transition">
-          Contacto
+          {content.nav.contact}
         </a>
 
         <button
