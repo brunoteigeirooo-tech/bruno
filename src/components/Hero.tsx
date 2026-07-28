@@ -1,4 +1,15 @@
-export default function Hero() {
+import { es } from "@/content/es";
+import { en } from "@/content/en";
+
+type Language = "es" | "en";
+
+interface HeroProps {
+  language?: Language;
+}
+
+export default function Hero({ language = "es" }: HeroProps) {
+  const content = language === "en" ? en : es;
+
   return (
     <section className="px-8 py-32">
       <div className="max-w-4xl">
@@ -7,14 +18,11 @@ export default function Hero() {
         </p>
 
         <h1 className="text-6xl font-semibold tracking-tight leading-tight">
-          Comunicación estratégica
-          <br />
-          con una visión humana.
+          {content.hero.title}
         </h1>
 
         <p className="mt-8 max-w-2xl text-xl leading-relaxed text-zinc-600">
-          Desarrollo ideas, contenido y estrategias digitales para marcas que
-          buscan conectar de forma auténtica con las personas.
+          {content.hero.description}
         </p>
 
         <div className="mt-10 flex gap-4">
