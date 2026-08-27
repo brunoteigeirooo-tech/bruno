@@ -25,7 +25,7 @@ export default function Recognition({ content }: RecognitionProps) {
         <div className="overflow-hidden rounded-[2rem] border border-current/10 bg-[var(--surface)] p-8 sm:p-12 md:p-20">
           <div className="mt-4 grid gap-12 md:grid-cols-[0.8fr_2fr] md:items-end">
             <div>
-              <span className="text-7xl font-light tracking-[-0.07em] text-[var(--accent)] sm:text-8xl">
+              <span className="text-7xl font-light tracking-[-0.07em] text-black sm:text-8xl">
                 02
               </span>
 
@@ -53,3 +53,5 @@ export default function Recognition({ content }: RecognitionProps) {
     </section>
   );
 }
+
+

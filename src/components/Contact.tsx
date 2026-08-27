@@ -33,7 +33,7 @@ export default function Contact({ content }: ContactProps) {
         <div className="mt-12 flex flex-wrap gap-4">
           <a
             href="mailto:brunoteigeirooo@gmail.com"
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--accent)] px-7 py-4 text-sm font-semibold text-[#171715] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-black px-7 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/80"
           >
             {content.button}
           </a>
@@ -79,3 +79,5 @@ export default function Contact({ content }: ContactProps) {
     </section>
   );
 }
+
+
