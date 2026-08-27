@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -19,6 +19,25 @@ export default function Home() {
   const [language, setLanguage] = useState<"es" | "en">("es");
   const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("bruno-theme");
+
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+    }
+
+    if (savedTheme === "light") {
+      setDarkMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "bruno-theme",
+      darkMode ? "dark" : "light"
+    );
+  }, [darkMode]);
+
   const content = language === "en" ? en : es;
 
   return (
@@ -26,8 +45,8 @@ export default function Home() {
       id="top"
       className={
         darkMode
-          ? "min-h-screen overflow-x-hidden bg-[#111111] text-[#f5f3ed] transition-colors duration-500 [--background:#111111]"
-          : "min-h-screen overflow-x-hidden bg-[#f7f5f0] text-[#171717] transition-colors duration-500 [--background:#f7f5f0]"
+          ? "min-h-screen overflow-x-hidden bg-[#10100f] text-[#f4f0e8] transition-colors duration-500 [--background:#10100f] [--foreground:#f4f0e8] [--surface:#181817] [--line:rgba(244,240,232,0.13)] [--muted:rgba(244,240,232,0.62)] [--accent:#e9ad43]"
+          : "min-h-screen overflow-x-hidden bg-[#f5f2eb] text-[#171715] transition-colors duration-500 [--background:#f5f2eb] [--foreground:#171715] [--surface:#ebe7de] [--line:rgba(23,23,21,0.13)] [--muted:rgba(23,23,21,0.62)] [--accent:#b77919]"
       }
     >
       <Navbar

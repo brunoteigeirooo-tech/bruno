@@ -1,5 +1,7 @@
 ﻿"use client";
 
+import LampToggle from "@/components/LampToggle";
+
 interface NavbarProps {
   language: "es" | "en";
   setLanguage: (language: "es" | "en") => void;
@@ -16,18 +18,9 @@ export default function Navbar({
   const isEnglish = language === "en";
 
   const links = [
-    {
-      label: isEnglish ? "Profile" : "Perfil",
-      href: "#perfil",
-    },
-    {
-      label: isEnglish ? "Experience" : "Trayectoria",
-      href: "#experiencia",
-    },
-    {
-      label: isEnglish ? "Work" : "Trabajo",
-      href: "#trabajo",
-    },
+    { label: isEnglish ? "Profile" : "Perfil", href: "#perfil" },
+    { label: isEnglish ? "Experience" : "Trayectoria", href: "#experiencia" },
+    { label: isEnglish ? "Work" : "Trabajo", href: "#trabajo" },
     {
       label: isEnglish ? "Recognition" : "Reconocimientos",
       href: "#reconocimientos",
@@ -36,17 +29,14 @@ export default function Navbar({
       label: isEnglish ? "Knowledge" : "Conocimientos",
       href: "#conocimientos",
     },
-    {
-      label: isEnglish ? "Contact" : "Contacto",
-      href: "#contact",
-    },
+    { label: isEnglish ? "Contact" : "Contacto", href: "#contact" },
   ];
 
   return (
-    <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-6 sm:px-8 sm:py-8 md:px-12">
+    <nav className="relative z-50 mx-auto flex w-full max-w-7xl items-center justify-between gap-6 border-b border-current/10 px-5 py-5 sm:px-8 sm:py-6 md:px-12">
       <a
         href="#top"
-        className="shrink-0 text-xs font-semibold tracking-[0.08em] sm:text-sm"
+        className="shrink-0 text-xs font-semibold tracking-[0.08em] transition-opacity hover:opacity-60 sm:text-sm"
       >
         BRUNO TEIGEIRO
       </a>
@@ -56,31 +46,28 @@ export default function Navbar({
           <a
             key={link.href}
             href={link.href}
-            className="text-xs font-medium opacity-60 transition-opacity hover:opacity-100"
+            className="text-xs font-medium opacity-55 transition-opacity duration-200 hover:opacity-100"
           >
             {link.label}
           </a>
         ))}
       </div>
 
-      <div className="flex shrink-0 items-center gap-2">
-        <button
-          type="button"
-          onClick={() => setDarkMode(!darkMode)}
-          aria-label={
-            darkMode
-              ? "Cambiar a modo claro"
-              : "Cambiar a modo oscuro"
-          }
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-current/15 bg-transparent text-lg transition-all hover:scale-105"
-        >
-          {darkMode ? "☀︎" : "☾"}
-        </button>
+      <div className="flex shrink-0 items-center gap-4">
+        <LampToggle
+          darkMode={darkMode}
+          onToggle={() => setDarkMode(!darkMode)}
+        />
 
         <button
           type="button"
           onClick={() => setLanguage(isEnglish ? "es" : "en")}
-          className="cursor-pointer rounded-full border border-current/15 bg-transparent px-4 py-2.5 text-xs font-medium transition-all hover:bg-current hover:text-[var(--background)]"
+          aria-label={
+            isEnglish
+              ? "Cambiar idioma a español"
+              : "Change language to English"
+          }
+          className="flex h-9 min-w-10 cursor-pointer items-center justify-center rounded-full border border-current/15 bg-current/[0.03] px-3 text-xs font-semibold transition-all duration-300 hover:border-current/30 hover:bg-current/10"
         >
           {isEnglish ? "ES" : "EN"}
         </button>
