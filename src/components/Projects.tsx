@@ -16,9 +16,12 @@ interface ProjectsProps {
 
 export default function Projects({ content }: ProjectsProps) {
   return (
-    <section id="projects" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:px-12 md:py-32">
+    <section
+      id="trabajo"
+      className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:px-12 md:py-32"
+    >
       <div className="mb-16 max-w-3xl">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-black/60">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
           {content.eyebrow}
         </p>
 
@@ -26,19 +29,21 @@ export default function Projects({ content }: ProjectsProps) {
           {content.title}
         </h2>
 
-        <p className="mt-6 max-w-2xl text-base leading-7 text-black/65 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-base leading-7 opacity-65 sm:text-lg">
           {content.description}
         </p>
       </div>
 
-      <div className="grid gap-px overflow-hidden rounded-3xl border border-black/10 bg-black/10 md:grid-cols-3">
+      <div className="grid gap-px overflow-hidden rounded-3xl border border-current/10 bg-current/10 md:grid-cols-3">
         {content.items.map((item) => (
           <article
             key={item.number}
-            className="group min-h-[300px] bg-[#f7f5f0] p-7 transition-all duration-500 hover:bg-[#171717] hover:text-white sm:p-9"
+            className="group min-h-[300px] bg-[var(--background)] p-7 transition-all duration-500 hover:bg-current hover:text-[var(--background)] sm:p-9"
           >
             <div className="flex items-start justify-between">
-              <span className="text-sm opacity-50">{item.number}</span>
+              <span className="text-sm opacity-50">
+                {item.number}
+              </span>
 
               <span className="text-xs uppercase tracking-[0.12em] opacity-50">
                 {item.category}

@@ -26,8 +26,8 @@ export default function Home() {
       id="top"
       className={
         darkMode
-          ? "min-h-screen overflow-x-hidden bg-[#171717] text-[#f7f5f0]"
-          : "min-h-screen overflow-x-hidden bg-[#f7f5f0] text-[#171717]"
+          ? "min-h-screen overflow-x-hidden bg-[#111111] text-[#f5f3ed] transition-colors duration-500 [--background:#111111]"
+          : "min-h-screen overflow-x-hidden bg-[#f7f5f0] text-[#171717] transition-colors duration-500 [--background:#f7f5f0]"
       }
     >
       <Navbar

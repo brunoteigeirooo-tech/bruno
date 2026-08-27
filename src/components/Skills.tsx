@@ -10,10 +10,13 @@ interface SkillsProps {
 
 export default function Skills({ content }: SkillsProps) {
   return (
-    <section id="skills" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:px-12 md:py-32">
+    <section
+      id="conocimientos"
+      className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:px-12 md:py-32"
+    >
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-black/60">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
             {content.eyebrow}
           </p>
 
@@ -26,7 +29,7 @@ export default function Skills({ content }: SkillsProps) {
           {content.items.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-black/15 px-5 py-3 text-sm text-black/75 transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+              className="rounded-full border border-current/15 px-5 py-3 text-sm opacity-80 transition-all duration-300 hover:border-current hover:bg-current hover:text-[var(--background)]"
             >
               {item}
             </span>

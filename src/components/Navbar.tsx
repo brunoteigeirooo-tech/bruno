@@ -16,18 +16,30 @@ export default function Navbar({
   const isEnglish = language === "en";
 
   const links = [
-    { label: isEnglish ? "Profile" : "Perfil", href: "#perfil" },
-    { label: isEnglish ? "Experience" : "Experiencia", href: "#experiencia" },
-    { label: isEnglish ? "Projects" : "Proyectos", href: "#proyectos" },
+    {
+      label: isEnglish ? "Profile" : "Perfil",
+      href: "#perfil",
+    },
+    {
+      label: isEnglish ? "Experience" : "Trayectoria",
+      href: "#experiencia",
+    },
+    {
+      label: isEnglish ? "Work" : "Trabajo",
+      href: "#trabajo",
+    },
     {
       label: isEnglish ? "Recognition" : "Reconocimientos",
       href: "#reconocimientos",
     },
     {
-      label: isEnglish ? "Skills" : "Herramientas",
-      href: "#habilidades",
+      label: isEnglish ? "Knowledge" : "Conocimientos",
+      href: "#conocimientos",
     },
-    { label: isEnglish ? "Contact" : "Contacto", href: "#contact" },
+    {
+      label: isEnglish ? "Contact" : "Contacto",
+      href: "#contact",
+    },
   ];
 
   return (
@@ -44,7 +56,7 @@ export default function Navbar({
           <a
             key={link.href}
             href={link.href}
-            className="text-xs font-medium opacity-65 hover:opacity-100"
+            className="text-xs font-medium opacity-60 transition-opacity hover:opacity-100"
           >
             {link.label}
           </a>
@@ -55,8 +67,12 @@ export default function Navbar({
         <button
           type="button"
           onClick={() => setDarkMode(!darkMode)}
-          aria-label={darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-current/15 bg-transparent text-lg"
+          aria-label={
+            darkMode
+              ? "Cambiar a modo claro"
+              : "Cambiar a modo oscuro"
+          }
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-current/15 bg-transparent text-lg transition-all hover:scale-105"
         >
           {darkMode ? "☀︎" : "☾"}
         </button>
@@ -64,7 +80,7 @@ export default function Navbar({
         <button
           type="button"
           onClick={() => setLanguage(isEnglish ? "es" : "en")}
-          className="cursor-pointer rounded-full border border-current/15 bg-transparent px-4 py-2.5 text-xs font-medium"
+          className="cursor-pointer rounded-full border border-current/15 bg-transparent px-4 py-2.5 text-xs font-medium transition-all hover:bg-current hover:text-[var(--background)]"
         >
           {isEnglish ? "ES" : "EN"}
         </button>
